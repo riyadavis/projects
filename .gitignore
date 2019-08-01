@@ -2,7 +2,8 @@
 
 application/cache/*
 !application/cache/index.html
-
+composer.json
+composer.lock
 application/logs/*
 !application/logs/index.html
 
