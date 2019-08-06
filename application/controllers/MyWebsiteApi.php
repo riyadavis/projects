@@ -36,7 +36,7 @@ class MyWebsiteApi extends CI_Controller
         {
             if($this->cache->file->get($key)==null)
             {
-                $this->cache->file->save($key,1);
+                $this->cache->file->save($key,1,10);
             }
             else
             {
@@ -50,7 +50,7 @@ class MyWebsiteApi extends CI_Controller
                     $this->cache->file->save($key,$count);
                 }
             }
-            
+
             if($message=="")
             {
                 echo $this->cache->file->get($key);
