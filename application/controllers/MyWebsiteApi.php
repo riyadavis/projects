@@ -27,7 +27,27 @@ class MyWebsiteApi extends CI_Controller
         }
         echo $this->session->userdata('count');
     }
-
+    public function google_api()
+    {
+        // $this->cache->file->clean();
+        if($this->cache->file->is_supported())
+        {
+            if($this->cache->file->get('count')==null)
+            {
+                $this->cache->file->save('count',1);
+            }
+            else
+            {
+                $count = $this->cache->file->get('count') + 1;
+                $this->cache->file->save('count',$count);
+            }
+            echo $this->cache->file->get('count');
+        }
+        else
+        {
+            echo 'File cache not supported';
+        }
+    }
     public function signup($msg=null)
     {
         $username = $this->session->userdata('username');
