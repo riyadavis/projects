@@ -30,6 +30,7 @@ class MyWebsiteApi extends CI_Controller
     public function google_api()
     {
         $key = $this->input->get('key');
+        $message = "";
         // $this->cache->file->clean();
         if($this->cache->file->is_supported())
         {
@@ -40,9 +41,24 @@ class MyWebsiteApi extends CI_Controller
             else
             {
                 $count = $this->cache->file->get($key) + 1;
-                $this->cache->file->save($key,$count);
+                if($count > 2)
+                {
+                    $message = 'You have overused the limit';
+                }
+                else
+                {
+                    $this->cache->file->save($key,$count);
+                }
             }
-            echo $this->cache->file->get($key);
+            
+            if($message=="")
+            {
+                echo $this->cache->file->get($key);
+            }
+            else
+            {
+                echo $message;
+            }
         }
         else
         {
