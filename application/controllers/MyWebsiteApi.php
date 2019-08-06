@@ -15,7 +15,7 @@ class MyWebsiteApi extends CI_Controller
 
     public function index()
     {
-
+        echo 'Hello Riya';
     }
 
     public function signup($msg=null)
