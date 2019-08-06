@@ -29,19 +29,20 @@ class MyWebsiteApi extends CI_Controller
     }
     public function google_api()
     {
+        $key = $this->input->get('key');
         // $this->cache->file->clean();
         if($this->cache->file->is_supported())
         {
-            if($this->cache->file->get('count')==null)
+            if($this->cache->file->get($key)==null)
             {
-                $this->cache->file->save('count',1);
+                $this->cache->file->save($key,1);
             }
             else
             {
-                $count = $this->cache->file->get('count') + 1;
-                $this->cache->file->save('count',$count);
+                $count = $this->cache->file->get($key) + 1;
+                $this->cache->file->save($key,$count);
             }
-            echo $this->cache->file->get('count');
+            echo $this->cache->file->get($key);
         }
         else
         {
