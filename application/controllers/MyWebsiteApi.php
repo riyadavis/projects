@@ -36,12 +36,12 @@ class MyWebsiteApi extends CI_Controller
         {
             if($this->cache->file->get($key)==null)
             {
-                $this->cache->file->save($key,1,10);
+                $this->cache->file->save($key,1,1);
             }
             else
             {
                 $count = $this->cache->file->get($key) + 1;
-                if($count > 2)
+                if($count > 1000)
                 {
                     $message = 'You have overused the limit';
                 }
