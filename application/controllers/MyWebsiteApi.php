@@ -15,7 +15,17 @@ class MyWebsiteApi extends CI_Controller
 
     public function index()
     {
-        echo 'Hello Riya';
+        if($this->session->has_userdata('count'))
+        {
+             $count = $this->session->userdata('count');
+             $count++;
+             $this->session->set_userdata('count',$count);
+        }
+        else
+        {
+            $this->session->set_userdata('count',0);
+        }
+        echo $this->session->userdata('count');
     }
 
     public function signup($msg=null)
