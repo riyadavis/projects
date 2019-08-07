@@ -36,7 +36,7 @@
 </div>
 
 <script>
-    var url = "<?php echo site_url('RecipeApi/chatPusher'); ?>";
+    var url = "<?php echo site_url('MyWebsiteApi/chatPusher'); ?>";
     $('form').submit(function(e){
         e.preventDefault();
         ajaxPost();
