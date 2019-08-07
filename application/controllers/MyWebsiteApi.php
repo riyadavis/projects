@@ -12,7 +12,23 @@ class MyWebsiteApi extends CI_Controller
         $this->load->model('MyWebsiteDatabase');
 
     }
-
+    public function chat()
+    {
+        $this->load->view('vendor/autoload.php');
+        $options = array(
+            'cluster' => 'ap2',
+            'useTLS' => true
+          );
+          $pusher = new Pusher\Pusher(
+            '430fda1055afdc1d70da',
+            '7d8715d8267744ecc8a9',
+            '838370',
+            $options
+          );
+        
+          $data['message'] = 'hello world';
+          $pusher->trigger('my-channel', 'my-event', $data);        
+    }
     public function index()
     {
         if($this->session->has_userdata('count'))
