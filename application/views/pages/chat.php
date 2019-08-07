@@ -8,7 +8,7 @@
     <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
     <script>
         // Enable pusher logging - don't include this in production
-        Pusher.logToConsole = true;
+        Pusher.logToConsole = false;
 
         var pusher = new Pusher('430fda1055afdc1d70da', {
         cluster: 'ap2',
