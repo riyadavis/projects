@@ -26,8 +26,9 @@ class MyWebsiteApi extends CI_Controller
             $options
           );
         
-          $data['message'] = 'hello world';
-          $pusher->trigger('my-channel', 'my-event', $data);        
+          $data['message'] = $this->input->post('message');
+          $data['userName'] = $this->input->post('userName');
+          $pusher->trigger('channelRiya', 'eventChat', $data);        
     }
     public function chat()
     {

@@ -16,9 +16,9 @@
         forceTLS: true
         });
 
-        var channel = pusher.subscribe('my-channel');
-        channel.bind('my-event', function(data) {
-            console.log(data);
+        var channel = pusher.subscribe('channelRiya');
+        channel.bind('eventChat', function(data) {
+            $('#chatBox').append('<p>'+data.userName+' : '+data.message+'</p>');
         });
     </script>    
 </head>
