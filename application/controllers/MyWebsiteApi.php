@@ -12,7 +12,7 @@ class MyWebsiteApi extends CI_Controller
         $this->load->model('MyWebsiteDatabase');
 
     }
-    public function chat()
+    public function chatPusher()
     {
         $this->load->view('vendor/autoload.php');
         $options = array(
@@ -28,6 +28,10 @@ class MyWebsiteApi extends CI_Controller
         
           $data['message'] = 'hello world';
           $pusher->trigger('my-channel', 'my-event', $data);        
+    }
+    public function chat()
+    {
+        $this->load->view('pages/chat');
     }
     public function index()
     {
