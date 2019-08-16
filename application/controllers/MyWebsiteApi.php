@@ -12,6 +12,10 @@ class MyWebsiteApi extends CI_Controller
         $this->load->model('MyWebsiteDatabase');
 
     }
+    public function maps()
+    {
+        $this->load->view('pages/maps');
+    }
     public function chatPusher()
     {
         $this->load->view('vendor/autoload.php');
