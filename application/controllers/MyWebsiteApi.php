@@ -16,6 +16,26 @@ class MyWebsiteApi extends CI_Controller
     {
         $this->load->view('pages/maps');
     }
+    public function notify()
+    {
+        $this->load->view('pages/notify');
+    }
+    public function notification()
+    {
+        $this->load->view('vendor/autoload.php');
+        $options = array(
+            'cluster' => 'ap2',
+            'useTLS' => true
+          );
+          $pusher = new Pusher\Pusher(
+            '430fda1055afdc1d70da',
+            '7d8715d8267744ecc8a9',
+            '838370',
+            $options
+          );
+
+          $pusher->trigger('channelRiya', 'eventChat', array('message'=>'you are notified by this message'));
+    }
     public function chatPusher()
     {
         $this->load->view('vendor/autoload.php');
