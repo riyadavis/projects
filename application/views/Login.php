@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="<?php echo site_url('SemiWebsiteApi/LoginToken'); ?>" class="form-group" method="post">
+    <form action="<?php echo site_url('MyWebsiteApi/LoginToken'); ?>" class="form-group" method="post">
         <div class="form-control">
             <input type="text" name="uid" placeholder="enter your id">
         </div>
