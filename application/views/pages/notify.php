@@ -24,7 +24,7 @@
 </head>
 <body>
 <div class="container">
-    <div id="chatBox" style="background-color:wheat;width:40%;min-height:300px">
+    <div id="chatBox" style="background-color:white;width:40%;min-height:300px">
     </div>
     <div>
         <form action="" method="post">
@@ -37,7 +37,7 @@
     var url = "<?php echo site_url('MyWebsiteApi/notification'); ?>";
     $('form').submit(function(e){
         e.preventDefault();
-        document.getElementById('chatbox').innerText = "";
+        // document.getElementById('chatbox').innerText = "";
         ajaxPost();
         async function ajaxPost()
         {
