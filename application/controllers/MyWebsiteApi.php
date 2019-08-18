@@ -14,11 +14,16 @@ class MyWebsiteApi extends CI_Controller
         $this->objOfJwt = new ImplementJWT();
 
     }
-    public function LoginToken()
+    public function Login()
 	{
-		$tokenData['uniqueId'] = '5555';
-		$tokenData['name'] = 'riya';
-		$tokenData['role'] = 'user';
+		$this->load->view('Login');
+	}
+
+	public function LoginToken()
+	{
+		$tokenData['uniqueId'] = $this->input->post('uid');
+		$tokenData['name'] = $this->input->post('uname');
+		$tokenData['role'] = $this->input->post('urole');
 		$tokenData['timeStamp'] = Date('Y-m-d h:i:s');
 		$jwtToken = $this->objOfJwt->GenerateToken($tokenData);
 		echo json_encode(array('Token'=>$jwtToken));
