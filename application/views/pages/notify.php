@@ -37,7 +37,7 @@
     var url = "<?php echo site_url('MyWebsiteApi/notification'); ?>";
     $('form').submit(function(e){
         e.preventDefault();
-        document.getElementById('chatbox').innerHTML = "";
+        document.getElementById('chatbox').innerText = "";
         ajaxPost();
         async function ajaxPost()
         {
