@@ -160,21 +160,21 @@ class MyWebsiteApi extends CI_Controller
         }
     }
 
-    public function login($msg2=null)
-    {   
-        $username = $this->session->userdata('username');
-        if($username==null)
-        {   
-            $data['msg'] = $msg2;
-            $this->load->view('components/header');
-            $this->load->view('pages/login',$data);
-            $this->load->view('components/footer');
-        }
-        else
-        {
-            redirect('MyWebsiteApi/home');
-        }
-    }
+    // public function login($msg2=null)
+    // {   
+    //     $username = $this->session->userdata('username');
+    //     if($username==null)
+    //     {   
+    //         $data['msg'] = $msg2;
+    //         $this->load->view('components/header');
+    //         $this->load->view('pages/login',$data);
+    //         $this->load->view('components/footer');
+    //     }
+    //     else
+    //     {
+    //         redirect('MyWebsiteApi/home');
+    //     }
+    // }
 
     public function home()
     {  
