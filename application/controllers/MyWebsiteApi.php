@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+require APPPATH . '/libraries/ImplementJWT.php';
 
 class MyWebsiteApi extends CI_Controller
 {
@@ -10,8 +11,36 @@ class MyWebsiteApi extends CI_Controller
         header('Access-Control-Allow-Credentials: true');    
         header("Access-Control-Allow-Methods: GET, POST, OPTIONS");         
         $this->load->model('MyWebsiteDatabase');
+        $this->objOfJwt = new ImplementJWT();
 
     }
+    public function LoginToken()
+	{
+		$tokenData['uniqueId'] = '5555';
+		$tokenData['name'] = 'riya';
+		$tokenData['role'] = 'user';
+		$tokenData['timeStamp'] = Date('Y-m-d h:i:s');
+		$jwtToken = $this->objOfJwt->GenerateToken($tokenData);
+		echo json_encode(array('Token'=>$jwtToken));
+	}
+
+	public function GetTokenData()
+	{
+		header('Content-Type:application/json');
+		$received_Token = $this->input->request_headers('Authorization');
+		try
+		{
+			$jwtData = $this->objOfJwt->DecodeToken($received_Token['Token']);
+			echo json_encode($jwtData);
+		}
+		catch (Exception $e)
+		{
+			http_response_code('401');
+			echo json_encode(array("status" => false, "message" =>$e->getMessage()));
+			exit;
+		}
+	}
+
     public function maps()
     {
         $this->load->view('pages/maps');
