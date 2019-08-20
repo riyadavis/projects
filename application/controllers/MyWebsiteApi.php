@@ -54,6 +54,12 @@ class MyWebsiteApi extends CI_Controller
     {
         $this->load->view('pages/notify');
     }
+
+    public function Demo()
+	{
+		$ip = $_SERVER['REMOTE_ADDR'];
+		echo $ip;
+	}
     public function notification()
     {
         $this->load->view('vendor/autoload.php');
