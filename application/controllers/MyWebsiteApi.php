@@ -69,8 +69,8 @@ class MyWebsiteApi extends CI_Controller
         // $this->load->third_party('Pusher');
         // $this->Pusher->pusher();
         // $this->load->view('confirm');
-        $this->load->view('vendor/autoload.php');
-        require __DIR__ .'vendor/autoload.php';
+        $this->load->third_party('vendor/autoload.php');
+        // require __DIR__ .'vendor/autoload.php';
 
         $options = array(
         'cluster' => 'ap2',
