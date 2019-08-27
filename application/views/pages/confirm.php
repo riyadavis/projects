@@ -26,16 +26,21 @@
     Try publishing an event to channel <code>my-channel</code>
     with event name <code>my-event</code>.
   </p>
+  <form action="" method="post">
+            <button type="submit">Click Me</button>
+        </form>
 </body>
 <script>
-$(document).ready(function(){
-    var url = "<?php echo site_url('MyWebsiteApi/confirmMessage'); ?>";
-    ajaxPost();
+var url = "<?php echo site_url('MyWebsiteApi/confirmMessage'); ?>";
+    $('form').submit(function(e){
+        e.preventDefault();
+        // document.getElementById('chatbox').innerText = "";
+        ajaxPost();
         async function ajaxPost()
         {
             let request = await fetch(url);
         }
-});
+    });
     
 </script>
 </html>
