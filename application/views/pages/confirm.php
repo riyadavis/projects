@@ -26,11 +26,14 @@
   </p>
 </body>
 <script>
+$(document).ready(function(){
     var url = "<?php echo site_url('MyWebsiteApi/confirmMessage'); ?>";
     ajaxPost();
         async function ajaxPost()
         {
             let request = await fetch(url);
         }
+});
+    
 </script>
 </html>
